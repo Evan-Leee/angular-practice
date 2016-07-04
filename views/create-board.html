@@ -1,0 +1,39 @@
+<div ng-controller="CreateBoardCtrl">
+  <!--<h3><a href="#/board">Boards</a> > {{title}} Board</h3>-->
+  <!--<hr>-->
+  <bread-crumb></bread-crumb>
+  <div class="content">
+    <form name="form" novalidate>
+      <div>
+        <span>Name: </span>
+        <input type="text"
+               ng-model="name"
+               name="boardName"
+               required="false"/>
+        <span class="required">*</span>
+      </div>
+      <div class="warning"
+           ng-show="(submitted || form.boardName.$touched) && form.boardName.$error.required">* The Name can not be empty! </div>
+      <div>
+        <span>Description: </span>
+        <textarea name="desc"
+                  rows="8"
+                  ng-model="desc"
+                  maxlength="100"></textarea>
+      </div>
+      <div>
+        <span>Owner: </span>
+        <select ng-model="ownerProp" name="owner" required>
+          <option ng-repeat="owner in owners">{{owner}}</option>
+        </select>
+        <span class="required">*</span>
+        <div class="warning"
+             ng-show="(submitted || form.owner.$touched) && form.owner.$error.required">* The Owner can not be empty! </div>
+      </div>
+      <input class="save"
+             type="button"
+             value="Save"
+             ng-click="saveAndUpdate(form)">
+    </form>
+  </div>
+</div>

@@ -1,0 +1,164 @@
+html{
+  font-family: sans-serif;
+}
+
+h3{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+hr{
+  margin-bottom: 20px;
+}
+
+div.content{
+  padding: 0 20px;
+}
+
+a.create{
+  padding: 5px 10px;
+  background-color: #8a4182;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  cursor: pointer;
+}
+a.create:hover{
+  background-color: #a9499e;
+}
+
+table{
+  text-align: center;
+  margin: 20px auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th, td{
+  padding: 10px 20px;
+  width: 210px;
+}
+
+tr{
+
+  border:none;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+tbody > tr:hover{
+  background-color: #eee;
+}
+
+span.order-by {
+  position: relative;
+}
+
+span.order-by > em{
+  display: inline-block;
+  overflow: hidden;
+  width: 0px;
+  height: 0px;
+  border: 6px solid #ccc;
+  border-color: #ccc #fff;
+  position: absolute;
+  right: -20px;
+}
+span.order-by > em:hover{
+  cursor: pointer;
+}
+
+span.order-by > em.to-bottom{
+  border-width: 6px 6px 0 6px;
+  margin-bottom: -6px;
+  top: 5px;
+}
+span.order-by > em.to-top {
+  border-width: 0 6px 6px 6px;
+  margin-top: -6px;
+  top: 12px;
+}
+
+button.operate {
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  background-color: #20afa8;
+  font-size: 15px;
+}
+
+button.operate:hover{
+  background-color: #24ccc3;
+}
+
+a{
+  text-decoration: none;
+  color: #0473ec;
+}
+
+form{
+  width:500px;
+  margin: 0 auto;
+  font-size: 20px;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+form > div {
+  display: block;
+  margin-bottom: 10px;
+}
+
+div > span{
+  display: inline-block;
+  width: 150px;
+  text-align: right;
+  vertical-align: top;
+  margin-right: 30px;
+}
+
+input, textarea{
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 14px;
+  width:200px;
+  resize: none;
+}
+
+input.save{
+  display: block;
+  margin: 0 auto;
+  padding: 5px 10px;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+  width: auto;
+  border:none;
+  background-color: #8a4182;
+}
+input.save:hover{
+  background-color: #a9499e;
+}
+
+select {
+  min-width: 100px;
+  font-size: inherit;
+}
+
+div.warning{
+  text-align: left;
+  font-size: 12px;
+  color: red;
+  width: 200px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 195px;
+}
+
+.required{
+  color: red;
+  width: 10px;
+  padding:5px;
+}

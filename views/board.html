@@ -1,0 +1,30 @@
+<div ng-controller="BoardCtrl">
+  <bread-crumb></bread-crumb>
+  <div class="content">
+    <a class="create" href="#/createBoard">Create Board</a>
+    <table>
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Owner</th>
+        <th><span class="order-by">Create on<em ng-class="{'to-bottom': reverse, 'to-top': !reverse}"
+                                                ng-click="orderBy('createOn')"></em></span></th>
+        <th>Operation</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="board in boards | orderBy: createOn:reverse ">
+        <td>{{board.id}}</td>
+        <td>{{board.name}}</td>
+        <td>{{board.owner}}</td>
+        <td>{{board.createOn}}</td>
+        <td>
+          <button class="operate" ng-click="edit(board.id)">Edit</button>
+          <button class="operate" ng-click="delete(board.id)">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
