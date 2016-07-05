@@ -4,14 +4,30 @@ angular.module('createBoard', ['ngRoute'])
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/createBoard', {
       templateUrl: 'views/create-board.html',
-      controller: 'CreateBoardCtrl'
+      controller: 'CreateBoardCtrl',
+      resolve: {
+        board: function ($route, $http) {
+          return $http({
+            url: '/board/' + $route.current.params.boardId,
+            method: "GET"
+          });
+        }
+      }
     }).when('/createBoard/:boardId', {
       templateUrl: 'views/create-board.html',
-      controller: 'CreateBoardCtrl'
+      controller: 'CreateBoardCtrl',
+      resolve: {
+        board: function ($route, $http) {
+          return $http({
+            url: '/board/' + $route.current.params.boardId,
+            method: "GET"
+          });
+        }
+      }
     });
   }])
-  .controller('CreateBoardCtrl', ['$http', '$routeParams', '$scope', '$location',
-    function ($http, $routeParams, $scope, $location) {
+  .controller('CreateBoardCtrl', ['$http', '$routeParams', '$scope', '$location', 'board',
+    function ($http, $routeParams, $scope, $location, board) {
       $scope.title = 'Create';
       $scope.name = '';
       $scope.desc = '';
@@ -23,17 +39,9 @@ angular.module('createBoard', ['ngRoute'])
       if ($routeParams.boardId) {
         $scope.title = 'Edit';
         $scope.saveAndUpdate = update;
-        $http({
-          url: '/board/' + $routeParams.boardId,
-          method: "GET",
-          params: {boardId: $routeParams.boardId}
-        }).then(function (res) {
-          $scope.name = res.data.board.name;
-          $scope.desc = res.data.board.desc;
-          $scope.ownerProp = res.data.board.owner;
-        }, function (res) {
-          console.log(res);
-        });
+        $scope.name = board.data.name;
+        $scope.desc = board.data.desc;
+        $scope.ownerProp = board.data.owner;
       }
       
       $scope.paths = [

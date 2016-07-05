@@ -21,9 +21,9 @@ BoardController.prototype.getBoardInfo = function (req, res){
   var id = req.params.boardId;
   Board.findOne({id: id}, function (err, data){
     if(!err){
-      res.send({board: data, status: 200});
+      res.send(data);
     }else {
-      res.send ({err: err, status: 404});
+      res.send (err);
     }
   });
   

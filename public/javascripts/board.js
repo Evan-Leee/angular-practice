@@ -7,7 +7,7 @@ angular.module('board', ['ngRoute'])
       controller: 'BoardCtrl'
     })
   }])
-  .controller('BoardCtrl', ['$http', '$location', '$scope', '$route',
+  .controller('BoardCtrl', ['$http', '$location', '$scope', '$route', 
     function ($http, $location, $scope, $route) {
 
       $scope.paths = [
