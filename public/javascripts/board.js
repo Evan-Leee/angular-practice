@@ -10,6 +10,14 @@ angular.module('board', ['ngRoute'])
   .controller('BoardCtrl', ['$http', '$location', '$scope', '$route',
     function ($http, $location, $scope, $route) {
 
+      $scope.paths = [
+        {
+          href: '',
+          aValue: '',
+          value: 'Boards'
+        }
+      ];
+      
       $scope.reverse = true;
       $http.get('/board').then(function (res) {
           $scope.boards = res.data.boards;
@@ -37,11 +45,4 @@ angular.module('board', ['ngRoute'])
           $scope.reverse = !$scope.reverse;
         }
       }
-    }])
-  .directive('breadCrumb', function () {
-    return {
-      restrict: 'E',
-      templateUrl: 'views/breadcrumb.html',
-      scope: {}
-    }
-  });
+    }]);

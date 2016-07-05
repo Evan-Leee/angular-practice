@@ -162,3 +162,11 @@ div.warning{
   width: 10px;
   padding:5px;
 }
+
+ul{
+  padding-left: 0;
+}
+.breadcrumb > li {
+  list-style: none;
+  display: inline-block;
+}

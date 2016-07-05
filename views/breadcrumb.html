@@ -1,6 +1,10 @@
 <h3>
-  <ul>
-    <li ng-repeat="path in paths">{{path.}}</li>
+  <ul class="breadcrumb">
+    <li ng-repeat="path in paths">
+      <a ng-href={{path.href}}>{{path.aValue}}</a>
+      {{path.value}}
+      <span ng-if="$index < paths.length - 1"> > </span>
+    </li>
   </ul>
 </h3>
 <hr>
