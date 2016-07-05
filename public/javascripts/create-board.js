@@ -58,7 +58,7 @@ angular.module('createBoard', ['ngRoute'])
           id: $routeParams.boardId
         };
 
-        if ($scope.name && $scope.ownerProp) {
+        if (!form.$error.required) {
           $http.put('/board', {data: data})
             .then(function (res) {
               if (res.data.status === 202) {
@@ -77,7 +77,7 @@ angular.module('createBoard', ['ngRoute'])
 
       }
 
-      function save() {
+      function save(form) {
         $scope.submitted = true;
         var data = {
           name: $scope.name,
@@ -85,7 +85,7 @@ angular.module('createBoard', ['ngRoute'])
           owner: $scope.ownerProp,
           createOn: new Date().format('Y-m-d H:i:s')
         };
-        if ($scope.name && $scope.ownerProp) {
+        if (!form.$error.required) {
           $http.post('/board', {data: data})
             .then(function (res) {
               if (res.data.status === 201) {

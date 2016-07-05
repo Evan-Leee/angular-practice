@@ -38,7 +38,7 @@ BoardController.prototype.saveInfo = function (req, res){
   board.owner = data.owner;
   
   Board.find({}).then(function (doc){
-    board.id = doc.length + 1;
+    board.id = doc[doc.length - 1].id + 1;
     board.save(function (err, data){
       if(!err){
         res.send({status: 201, err: null})
